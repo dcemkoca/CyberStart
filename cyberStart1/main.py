@@ -1,18 +1,23 @@
-tuple1 = ("x1","y2")
-tuple2 = ("x2","y2")
+import math
 
-#print(tuple1[0]-tuple2[0])
-
-points = [tuple1,tuple2]
-
-print(type(points))
+points = [(0, 2), (0, 4), (0, 5), (0, 9), (0, 15)]
+distances = []
 
 def euclideanDistance(tuple1,tuple2):
-    distance = (tuple2[0]-tuple1[0])+(tuple2[1]-tuple1[1])
-    print("test")
-    return print(distance)
+    distance = math.sqrt(((tuple2[0]-tuple1[0]) ** 2)+((tuple2[1]-tuple1[1]) ** 2))
+    return distance
 
-for i in len(points):
-    euclideanDistance(points[i],points[i+1])
+for i in range(len(points)-1):
+    x = euclideanDistance(points[i],points[i+1])
+    distances.append(x)
 
-euclideanDistance((1,2),(3,4))
+print(distances)
+maxDistance = distances[0]
+
+for i in range(len(distances)):
+    if distances[i] > maxDistance:
+        maxDistance = distances[i]
+
+print(maxDistance)
+
+
